@@ -1,9 +1,13 @@
 <?php
 
+use Illuminate\Http\Request;
+
 require __DIR__ . '/../vendor/autoload.php';
 
 $app = require_once __DIR__ . '/../bootstrap/app.php';
 
-$app->handleRequest(
-    Illuminate\Http\Request::capture()
-);
+$request = Request::capture();
+
+$response = $app->handleRequest($request);
+
+$response->send();
