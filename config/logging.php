@@ -59,19 +59,23 @@ return [
         ],
 
         'single' => [
-            'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
-            'replace_placeholders' => true,
-        ],
+    'driver' => 'monolog',
+    'handler' => StreamHandler::class,
+    'with' => [
+        'stream' => 'php://stderr',
+    ],
+    'level' => env('LOG_LEVEL', 'debug'),
+],
 
         'daily' => [
-            'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
-            'days' => env('LOG_DAILY_DAYS', 14),
-            'replace_placeholders' => true,
-        ],
+    'driver' => 'monolog',
+    'handler' => StreamHandler::class,
+    'with' => [
+        'stream' => 'php://stderr',
+    ],
+    'level' => env('LOG_LEVEL', 'debug'),
+    'days' => 14,
+],
 
         'slack' => [
             'driver' => 'slack',
@@ -123,9 +127,6 @@ return [
             'handler' => NullHandler::class,
         ],
 
-        'emergency' => [
-            'path' => storage_path('logs/laravel.log'),
-        ],
 
     ],
 
