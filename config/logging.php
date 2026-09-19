@@ -126,7 +126,10 @@ return [
             'driver' => 'monolog',
             'handler' => NullHandler::class,
         ],
-
+        
+        'emergency' => [
+    'path' => 'php://stderr',
+],
 
     ],
 
