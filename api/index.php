@@ -29,8 +29,22 @@ try {
         }
     }
 
-    // WAJIB: Ganti lokasi storage ke /tmp agar terhindar dari Read-Only Filesystem error
     $app->useStoragePath($storagePath);
+
+    // Bypass Laravel's Exception Handler so we can see the ORIGINAL exception, 
+    // not the "Target class [view] does not exist" secondary exception.
+    $app->singleton(
+        \Illuminate\Contracts\Debug\ExceptionHandler::class,
+        new class implements \Illuminate\Contracts\Debug\ExceptionHandler {
+            public function report(\Throwable $e) {}
+            public function shouldReport(\Throwable $e) { return false; }
+            public function render($request, \Throwable $e) {
+                // Throw the original exception instead of trying to render a view
+                throw $e;
+            }
+            public function renderForConsole($output, \Throwable $e) {}
+        }
+    );
 
     // Jalankan aplikasi (jangan panggil public/index.php karena dia akan menggunakan storage lokal)
     $app->handleRequest(Illuminate\Http\Request::capture());
