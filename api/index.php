@@ -33,7 +33,7 @@ try {
 
     // Bypass Laravel's Exception Handler so we can see the ORIGINAL exception, 
     // not the "Target class [view] does not exist" secondary exception.
-    $app->singleton(
+    $app->instance(
         \Illuminate\Contracts\Debug\ExceptionHandler::class,
         new class implements \Illuminate\Contracts\Debug\ExceptionHandler {
             public function report(\Throwable $e) {}
