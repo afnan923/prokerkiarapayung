@@ -1,8 +1,26 @@
 @extends('layouts.app')
 
-@section('title', 'Beranda')
+@section('title', 'Desa Kiarapayung Kecamatan Pakuhaji Kabupaten Tangerang')
+@section('description', 'Desa Kiarapayung merupakan desa yang berada di Kecamatan Pakuhaji, Kabupaten Tangerang, Provinsi Banten. Website ini menyajikan informasi pemerintahan, berita, dan layanan desa.')
 
 @section('content')
+<!-- Structured Data JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GovernmentOrganization",
+  "name": "Pemerintah Desa Kiarapayung",
+  "description": "Website resmi Desa Kiarapayung, Kecamatan Pakuhaji, Kabupaten Tangerang.",
+  "url": "{{ url('/') }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Kiarapayung",
+    "addressLocality": "Kecamatan Pakuhaji",
+    "addressRegion": "Kabupaten Tangerang",
+    "addressCountry": "Indonesia"
+  }
+}
+</script>
 <section class="hero-section hero-home" id="hero-slider" style="background-image: url('{{ asset('images/sawah1.png') }}'); background-position: center; transition: background-image 0.6s ease-in-out, background-position 0.6s ease-in-out;">
     <div class="hero-overlay"></div>
     <div class="hero-content-new container">

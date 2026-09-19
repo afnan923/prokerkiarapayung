@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'UMKM Desa Kiara Payung')
+@section('title', 'UMKM Desa Kiarapayung | Kecamatan Pakuhaji')
+@section('description', 'Daftar produk UMKM lokal, kerajinan, dan kuliner khas dari masyarakat Desa Kiarapayung, Kecamatan Pakuhaji, Kabupaten Tangerang.')
 
 @section('content')
 <div class="page-header">

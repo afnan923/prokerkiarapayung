@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Infografis Desa')
+@section('title', 'Infografis Desa Kiarapayung | Kecamatan Pakuhaji')
+@section('description', 'Data infografis kependudukan, APBDes, kesehatan, dan kesejahteraan masyarakat Desa Kiarapayung, Kecamatan Pakuhaji, Kabupaten Tangerang.')
 
 @section('content')
 <style>

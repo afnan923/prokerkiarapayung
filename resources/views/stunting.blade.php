@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Stunting & Pencegahannya - Desa Kiara Payung')
+@section('title', 'Cegah Stunting Desa Kiarapayung | Kecamatan Pakuhaji')
+@section('description', 'Informasi program pencegahan stunting, gizi ibu hamil, 1000 HPK, dan posyandu di Desa Kiarapayung, Kecamatan Pakuhaji, Kabupaten Tangerang.')
 
 @section('content')
 <style>

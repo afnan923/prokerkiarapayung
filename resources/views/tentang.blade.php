@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Desa Kiara Payung Pakuhaji')
+@section('title', 'Profil Desa Kiarapayung | Kecamatan Pakuhaji')
+@section('description', 'Pelajari sejarah, visi, misi, dan struktur organisasi pemerintahan Desa Kiarapayung, Kecamatan Pakuhaji, Kabupaten Tangerang.')
 
 @section('content')
 <div class="page-header">

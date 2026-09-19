@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Website Resmi Profil Desa Kiara Payung, Kecamatan Pakuhaji, Kabupaten Tangerang. Menampilkan informasi desa, potensi UMKM, berita, dan layanan masyarakat.">
-    <meta name="keywords" content="Desa Kiara Payung, Kiara Payung Pakuhaji, Kecamatan Pakuhaji, Kabupaten Tangerang, Profil Desa, Web Desa">
-    <title>Desa Kiara Payung, Kec. Pakuhaji - @yield('title')</title>
+    <meta name="description" content="@yield('description', 'Website resmi Desa Kiarapayung, Kecamatan Pakuhaji, Kabupaten Tangerang. Menyediakan informasi profil desa, berita, layanan masyarakat, UMKM, potensi desa, dan informasi lainnya.')">
+    <meta name="keywords" content="Desa Kiarapayung, Kiarapayung Pakuhaji, Desa Kiarapayung Pakuhaji, Kecamatan Pakuhaji, Kabupaten Tangerang, Pemerintah Desa Kiarapayung">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="@yield('title', 'Desa Kiarapayung Kecamatan Pakuhaji Kabupaten Tangerang')">
+    <meta property="og:description" content="@yield('description', 'Website resmi Desa Kiarapayung, Kecamatan Pakuhaji, Kabupaten Tangerang. Menyediakan informasi profil desa, berita, layanan masyarakat, UMKM, potensi desa, dan informasi lainnya.')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+
+    <title>@yield('title', 'Desa Kiarapayung Kecamatan Pakuhaji Kabupaten Tangerang')</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
