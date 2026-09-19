@@ -17,12 +17,13 @@
   ],
   "env": {
     "APP_ENV": "production",
-    "APP_DEBUG": "false",
+    "APP_DEBUG": "true",
+    "APP_KEY": "base64:9O+L3c1P5T/9B6bJ1tW8YJtP3x9E2hA9YvL9K5tS1zU=",
     "APP_URL": "https://$VERCEL_URL",
     "CACHE_STORE": "array",
     "SESSION_DRIVER": "cookie",
     "QUEUE_CONNECTION": "sync",
-    "VIEW_COMPILED_PATH": "/tmp",
+    "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
     "LOG_CHANNEL": "stderr"
   }
 }
