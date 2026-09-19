@@ -10,14 +10,13 @@ try {
     // WAJIB: Vercel membangun aplikasi di direktori yang berbeda dengan saat dijalankan.
     // File cache services.php memiliki absolute path yang salah saat runtime.
     // Kita harus mengarahkan cache ini ke /tmp agar Laravel memuat ulang provider-nya.
+    putenv('APP_SERVICES_CACHE=/tmp/storage/bootstrap/cache/services.php');
+    putenv('APP_PACKAGES_CACHE=/tmp/storage/bootstrap/cache/packages.php');
+    putenv('APP_ROUTES_CACHE=/tmp/storage/bootstrap/cache/routes-v7.php');
+    putenv('APP_EVENTS_CACHE=/tmp/storage/bootstrap/cache/events.php');
+    
     $_ENV['APP_SERVICES_CACHE'] = '/tmp/storage/bootstrap/cache/services.php';
-    $_SERVER['APP_SERVICES_CACHE'] = '/tmp/storage/bootstrap/cache/services.php';
     $_ENV['APP_PACKAGES_CACHE'] = '/tmp/storage/bootstrap/cache/packages.php';
-    $_SERVER['APP_PACKAGES_CACHE'] = '/tmp/storage/bootstrap/cache/packages.php';
-    $_ENV['APP_ROUTES_CACHE'] = '/tmp/storage/bootstrap/cache/routes-v7.php';
-    $_SERVER['APP_ROUTES_CACHE'] = '/tmp/storage/bootstrap/cache/routes-v7.php';
-    $_ENV['APP_EVENTS_CACHE'] = '/tmp/storage/bootstrap/cache/events.php';
-    $_SERVER['APP_EVENTS_CACHE'] = '/tmp/storage/bootstrap/cache/events.php';
 
     $app = require_once __DIR__ . '/../bootstrap/app.php';
 
