@@ -5,45 +5,26 @@
 @section('content')
 <div class="page-header">
     <div class="container">
-        <h1>Berita Desa Kiarapayung</h1>
+        <h1>Berita Desa Kiara Payung</h1>
         <p>Kabar terbaru dan pengumuman dari desa.</p>
     </div>
 </div>
 
 <div class="container content-section">
     <div class="news-grid">
-        <!-- Berita 1 -->
+        @foreach($beritaList as $berita)
         <article class="news-card card-hover">
-            <div class="news-img placeholder-image small"><span>Foto Kegiatan</span></div>
+            <div class="news-img" style="height: 200px; overflow: hidden;">
+                <img src="{{ asset('images/' . $berita['foto']) }}" alt="{{ $berita['judul'] }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
             <div class="news-content">
-                <span class="news-date">15 Agustus 2026</span>
-                <h3>Persiapan Lomba Desa Tingkat Kabupaten</h3>
-                <p>Warga bergotong royong membersihkan lingkungan dan menyiapkan berbagai atribut untuk menyambut penilaian lomba desa...</p>
-                <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
+                <span class="news-date">{{ $berita['tanggal'] }} | <strong>{{ $berita['kategori'] }}</strong></span>
+                <h3 style="margin: 0.5rem 0;">{{ $berita['judul'] }}</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;"><i class="fas fa-map-marker-alt"></i> {{ $berita['lokasi'] }}</p>
+                <a href="{{ route('berita.detail', $berita['slug']) }}" class="read-more">Baca Selengkapnya &rarr;</a>
             </div>
         </article>
-
-        <!-- Berita 2 -->
-        <article class="news-card card-hover">
-            <div class="news-img placeholder-image small"><span>Foto Pertanian</span></div>
-            <div class="news-content">
-                <span class="news-date">10 Agustus 2026</span>
-                <h3>Panen Raya Padi Berlangsung Sukses</h3>
-                <p>Musim panen tahun ini membawa hasil yang melimpah bagi para petani di Kiarapayung, diharapkan dapat meningkatkan...</p>
-                <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
-            </div>
-        </article>
-
-        <!-- Berita 3 -->
-        <article class="news-card card-hover">
-            <div class="news-img placeholder-image small"><span>Foto Rapat</span></div>
-            <div class="news-content">
-                <span class="news-date">05 Agustus 2026</span>
-                <h3>Musyawarah Perencanaan Pembangunan (Musrenbang) 2027</h3>
-                <p>Pemerintah Desa telah melaksanakan Musrenbang untuk menyerap aspirasi warga terkait prioritas pembangunan tahun depan...</p>
-                <a href="#" class="read-more">Baca Selengkapnya &rarr;</a>
-            </div>
-        </article>
+        @endforeach
     </div>
 </div>
 @endsection

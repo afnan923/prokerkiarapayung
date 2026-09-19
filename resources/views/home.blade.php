@@ -3,10 +3,10 @@
 @section('title', 'Beranda')
 
 @section('content')
-<section class="hero-section hero-home" id="hero-slider" style="background-image: url('{{ asset('images/hero_kiara_payung.png') }}'); background-position: center; transition: background-image 0.6s ease-in-out, background-position 0.6s ease-in-out;">
+<section class="hero-section hero-home" id="hero-slider" style="background-image: url('{{ asset('images/sawah1.png') }}'); background-position: center; transition: background-image 0.6s ease-in-out, background-position 0.6s ease-in-out;">
     <div class="hero-overlay"></div>
     <div class="hero-content-new container">
-        <h1 class="fade-in-up">DESA<br>KIARAPAYUNG</h1>
+        <h1 class="fade-in-up">DESA<br>KIARA PAYUNG</h1>
         
         <!-- Pagination / vertical nav on the right -->
         <div class="hero-pagination fade-in-up" id="hero-pagination">
@@ -20,7 +20,7 @@
         <!-- Bottom blurbs -->
         <div class="hero-blurbs fade-in-up delay-1">
             <div class="blurb">
-                <p>Desa Kiarapayung adalah desa maju yang menjunjung tinggi nilai budaya dan kesejahteraan masyarakat.</p>
+                <p>Desa Kiara Payung adalah desa maju yang menjunjung tinggi nilai budaya dan kesejahteraan masyarakat.</p>
             </div>
             <div class="blurb">
                 <p>Terletak di kawasan strategis, desa ini memiliki potensi unggulan di bidang pertanian dan UMKM.</p>
@@ -37,10 +37,10 @@
 
 <script>
     const sliderImages = [
-        "{{ asset('images/hero_kiara_payung.png') }}",
-        "{{ asset('images/card_potensi.png') }}",
-        "{{ asset('images/hero_kiara_payung.png') }}",
-        "{{ asset('images/card_potensi.png') }}"
+        "{{ asset('images/sawah1.png') }}",
+        "{{ asset('images/sawah2.png') }}",
+        "{{ asset('images/pohon.png') }}",
+        "{{ asset('images/kantor_desa.png') }}"
     ];
     let currentSlideIndex = 0;
     let slideInterval;
@@ -80,10 +80,53 @@
         // Reset timer otomatis agar tidak dobel jika diklik manual
         resetAutoSwipe();
     }
+
+    function prevSlide() {
+        const slider = document.getElementById('hero-slider');
+        
+        slider.style.backgroundPosition = 'right center';
+        
+        setTimeout(() => {
+            currentSlideIndex = (currentSlideIndex - 1 + sliderImages.length) % sliderImages.length;
+            slider.style.backgroundImage = `url('${sliderImages[currentSlideIndex]}')`;
+            
+            setTimeout(() => {
+                slider.style.backgroundPosition = 'center';
+            }, 50);
+            
+            updatePaginationUI();
+        }, 300);
+        
+        resetAutoSwipe();
+    }
     
     function resetAutoSwipe() {
         clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000); // Otomatis geser setiap 5 detik
+        slideInterval = setInterval(nextSlide, 7000); // Otomatis geser setiap 7 detik (sedikit lebih lambat)
+    }
+
+    // Swipe support for mobile
+    const heroSlider = document.getElementById('hero-slider');
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    heroSlider.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    heroSlider.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, {passive: true});
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            // Swiped left -> next
+            nextSlide();
+        } else if (touchEndX > touchStartX + 50) {
+            // Swiped right -> prev
+            prevSlide();
+        }
     }
     
     // Mulai auto-swipe saat halaman dimuat
@@ -93,37 +136,30 @@
 <section id="potensi" class="potensi-section container">
     <div class="potensi-header">
         <p class="subtitle">Bingung? Ini rekomendasinya</p>
-        <h2 class="section-title">Potensi Unggulan</h2>
+        <h2 class="section-title">Potensi Desa</h2>
     </div>
-    <div class="grid-4-vertical">
-        <div class="vertical-card">
-            <img src="{{ asset('images/card_potensi.png') }}" alt="Potensi 1">
-            <div class="card-overlay">
-                <h3>Pertanian</h3>
-                <p>Hasil bumi melimpah</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: stretch;">
+        
+        <!-- Potensi Pertanian -->
+        <div class="vertical-card" style="width: 100%; height: 100%; overflow: hidden; border-radius: 12px; position: relative;">
+            <img src="{{ asset('images/potensi_pertanian.png') }}" alt="Potensi Pertanian" style="width: 100%; height: 350px; object-fit: cover; display: block;">
+            <div class="card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white;">
+                <h3 style="margin: 0 0 0.5rem 0;">Potensi Pertanian</h3>
+                <p style="margin: 0; font-size: 0.95rem; opacity: 0.9;">Hasil bumi melimpah</p>
             </div>
         </div>
-        <div class="vertical-card">
-            <img src="{{ asset('images/card_potensi.png') }}" alt="Potensi 2">
-            <div class="card-overlay">
-                <h3>UMKM Lokal</h3>
-                <p>Kerajinan & Kuliner</p>
+
+        <!-- Potensi UMKM -->
+        <a href="{{ route('umkm') }}" style="text-decoration: none; display: block; height: 100%;">
+            <div class="vertical-card" style="width: 100%; height: 100%; overflow: hidden; border-radius: 12px; position: relative; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <img src="{{ asset('images/potensi_umkm.png') }}" alt="Potensi UMKM" style="width: 100%; height: 350px; object-fit: cover; display: block;">
+                <div class="card-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white;">
+                    <h3 style="margin: 0 0 0.5rem 0;">Potensi UMKM</h3>
+                    <p style="margin: 0; font-size: 0.95rem; opacity: 0.9;">Kerajinan & Kuliner</p>
+                </div>
             </div>
-        </div>
-        <div class="vertical-card">
-            <img src="{{ asset('images/card_potensi.png') }}" alt="Potensi 3">
-            <div class="card-overlay">
-                <h3>Pariwisata</h3>
-                <p>Keindahan Alam</p>
-            </div>
-        </div>
-        <div class="vertical-card">
-            <img src="{{ asset('images/card_potensi.png') }}" alt="Potensi 4">
-            <div class="card-overlay">
-                <h3>Budaya</h3>
-                <p>Kearifan Lokal</p>
-            </div>
-        </div>
+        </a>
+
     </div>
 </section>
 
@@ -131,14 +167,14 @@
     <div class="container explore-content">
         <div class="explore-text">
             <h2>JELAJAHI DAN<br>NIKMATI DESA KAMI</h2>
-            <p>Jelajahi keindahan alam, keramahan penduduk, dan potensi luar biasa yang dimiliki oleh Desa Kiarapayung. Kami mengundang Anda untuk melihat lebih dekat.</p>
+            <p>Jelajahi keindahan alam, keramahan penduduk, dan potensi luar biasa yang dimiliki oleh Desa Kiara Payung. Kami mengundang Anda untuk melihat lebih dekat.</p>
         </div>
         <div class="explore-thumbnails">
             <div class="thumbnail">
-                <img src="{{ asset('images/hero_kiara_payung.png') }}" alt="Thumb 1">
+                <img src="{{ asset('images/sawah1.png') }}" alt="Sawah" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             <div class="thumbnail">
-                <img src="{{ asset('images/card_potensi.png') }}" alt="Thumb 2">
+                <img src="{{ asset('images/pohon.png') }}" alt="Pohon" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
         </div>
     </div>

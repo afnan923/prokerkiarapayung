@@ -18,14 +18,14 @@
     --placeholder-bg: linear-gradient(45deg, #e5e7eb, #d1d5db);
     --footer-bg: #111827;
     --footer-bottom-bg: #030712;
-    
+
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    
+
     --radius-md: 0.5rem;
     --radius-lg: 1rem;
-    
+
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -38,7 +38,7 @@
         --bg-light: #111827;
         --bg-white: #1f2937;
         --border-color: #374151;
-        
+
         --nav-bg: rgba(31, 41, 55, 0.9);
         --hero-bg: linear-gradient(135deg, #111827 0%, #1e3a8a 100%);
         --hero-title: #f9fafb;
@@ -235,8 +235,13 @@ a {
     transform: translateY(20px);
 }
 
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
 
 @keyframes fadeInUp {
     to {
@@ -247,20 +252,36 @@ a {
 
 /* Page Header */
 .page-header {
-    padding: 8rem 0 4rem;
-    background-color: var(--primary-color);
-    color: white;
+    padding: 8rem 1.5rem 3rem;
+    background-color: var(--bg-white);
     text-align: center;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .page-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    color: var(--text-main);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .page-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.page-header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 1.5rem auto 0;
 }
 
 /* Common Sections */
@@ -319,8 +340,13 @@ a {
     padding: 1rem;
 }
 
-.placeholder-image.small { height: 200px; }
-.placeholder-image.medium { height: 250px; }
+.placeholder-image.small {
+    height: 200px;
+}
+
+.placeholder-image.medium {
+    height: 250px;
+}
 
 /* About Section */
 .about-grid {
@@ -462,7 +488,8 @@ a {
     margin-bottom: 3rem;
 }
 
-.footer h3, .footer h4 {
+.footer h3,
+.footer h4 {
     color: white;
     margin-bottom: 1.2rem;
 }
@@ -513,16 +540,16 @@ a {
         padding: 1rem 0;
         box-shadow: var(--shadow-md);
     }
-    
+
     .nav-links.show {
         display: flex;
     }
-    
+
     .nav-links a {
         padding: 0.5rem 1.5rem;
         width: 100%;
     }
-    
+
     .mobile-menu-btn {
         display: flex;
     }
@@ -559,8 +586,11 @@ a {
 
 .hero-overlay {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
     z-index: 1;
 }
 
@@ -568,7 +598,8 @@ a {
     position: relative;
     z-index: 2;
     width: 100%;
-    padding-top: 100px; /* offset for navbar */
+    padding-top: 100px;
+    /* offset for navbar */
 }
 
 .hero-content-new h1 {
@@ -636,7 +667,8 @@ a {
 /* Potensi Section */
 .potensi-section {
     padding: 6rem 1.5rem;
-    background-color: var(--bg-light); /* adapts to light/dark */
+    background-color: var(--bg-light);
+    /* adapts to light/dark */
 }
 
 .potensi-header {
@@ -688,7 +720,7 @@ a {
     left: 0;
     right: 0;
     padding: 2rem 1rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
     color: white;
     text-align: center;
 }
@@ -708,7 +740,8 @@ a {
 .explore-section {
     position: relative;
     padding: 8rem 0;
-    background-color: #111; /* Always dark for this section as per image */
+    background-color: #111;
+    /* Always dark for this section as per image */
     color: white;
 }
 
@@ -775,39 +808,67 @@ a {
 /* Make Navbar transparent on homepage */
 body.home-page .navbar {
     background: transparent;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: none;
 }
+
 body.home-page .navbar .nav-brand,
 body.home-page .navbar .nav-links a {
     color: white;
 }
+
 body.home-page .navbar .nav-links a::after {
-    background-color: red; /* Red accent for active link */
+    background-color: red;
+    /* Red accent for active link */
 }
+
 body.home-page .navbar .nav-links a:hover,
 body.home-page .navbar .nav-links a.active {
     color: #fff;
 }
 
-/* Add a red dot to brand */
-.nav-brand::before {
-    content: '';
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-    margin-right: 8px;
-}
 
 /* Responsive updates */
 @media (max-width: 768px) {
-    .hero-content-new h1 { font-size: 3rem; }
-    .hero-blurbs { grid-template-columns: 1fr; margin-top: 2rem; }
-    .hero-pagination { display: none; }
-    .grid-4-vertical { grid-template-columns: 1fr 1fr; }
-    .explore-content { grid-template-columns: 1fr; }
-    .explore-thumbnails { justify-content: flex-start; }
-    .thumbnail { width: 100%; }
+    body.home-page .navbar .nav-links a {
+        color: var(--text-main);
+    }
+    
+    body.home-page .navbar .nav-links a:hover,
+    body.home-page .navbar .nav-links a.active {
+        color: var(--primary-color);
+    }
+    
+    body.home-page .navbar .nav-links a::after {
+        display: none;
+    }
+
+    .hero-content-new h1 {
+        font-size: 3rem;
+    }
+
+    .hero-blurbs {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+    }
+
+    .hero-pagination {
+        display: none;
+    }
+
+    .grid-4-vertical {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .explore-content {
+        grid-template-columns: 1fr;
+    }
+
+    .explore-thumbnails {
+        justify-content: flex-start;
+    }
+
+    .thumbnail {
+        width: 100%;
+    }
 }
