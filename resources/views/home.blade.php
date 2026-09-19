@@ -7,13 +7,13 @@
 <!-- Structured Data JSON-LD -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "GovernmentOrganization",
+  "@@context": "https://schema.org",
+  "@@type": "GovernmentOrganization",
   "name": "Pemerintah Desa Kiarapayung",
   "description": "Website resmi Desa Kiarapayung, Kecamatan Pakuhaji, Kabupaten Tangerang.",
   "url": "{{ url('/') }}",
   "address": {
-    "@type": "PostalAddress",
+    "@@type": "PostalAddress",
     "streetAddress": "Kiarapayung",
     "addressLocality": "Kecamatan Pakuhaji",
     "addressRegion": "Kabupaten Tangerang",
