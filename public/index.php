@@ -1,5 +1,5 @@
 <?php
-
+error_log('Laravel public index reached');
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
