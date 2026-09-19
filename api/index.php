@@ -4,28 +4,42 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 
-header('Content-Type: text/plain');
-
-echo "STEP 1: api/index.php OK\n";
-
 try {
-    echo "STEP 2: before public/index.php\n";
+    require __DIR__ . '/../vendor/autoload.php';
 
-    $_ENV['LOG_CHANNEL'] = 'stderr';
-    $_SERVER['LOG_CHANNEL'] = 'stderr';
+    $app = require_once __DIR__ . '/../bootstrap/app.php';
 
-    require __DIR__ . '/../public/index.php';
+    // Buat struktur direktori storage di /tmp agar Laravel bisa menyimpan cache dan session
+    $storagePath = '/tmp/storage';
+    $directories = [
+        $storagePath . '/framework/cache/data',
+        $storagePath . '/framework/sessions',
+        $storagePath . '/framework/testing',
+        $storagePath . '/framework/views',
+        $storagePath . '/logs',
+    ];
 
-    echo "\nSTEP 3: public/index.php finished\n";
+    foreach ($directories as $dir) {
+        if (!is_dir($dir)) {
+            @mkdir($dir, 0777, true);
+        }
+    }
+
+    // WAJIB: Ganti lokasi storage ke /tmp agar terhindar dari Read-Only Filesystem error
+    $app->useStoragePath($storagePath);
+
+    // Jalankan aplikasi (jangan panggil public/index.php karena dia akan menggunakan storage lokal)
+    $app->handleRequest(Illuminate\Http\Request::capture());
 
 } catch (\Throwable $e) {
-
-    echo "\n========== LARAVEL ERROR ==========\n";
+    http_response_code(500);
+    header('Content-Type: text/plain');
+    echo "========== LARAVEL FATAL ERROR ==========\n";
     echo "TYPE: " . get_class($e) . "\n";
     echo "MESSAGE: " . $e->getMessage() . "\n";
     echo "FILE: " . $e->getFile() . "\n";
     echo "LINE: " . $e->getLine() . "\n";
     echo "\nTRACE:\n";
     echo $e->getTraceAsString();
-    echo "\n===================================\n";
+    echo "\n=========================================\n";
 }
