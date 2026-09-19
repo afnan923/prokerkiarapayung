@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desa Kiara Payung - @yield('title')</title>
+    <meta name="description" content="Website Resmi Profil Desa Kiara Payung, Kecamatan Pakuhaji, Kabupaten Tangerang. Menampilkan informasi desa, potensi UMKM, berita, dan layanan masyarakat.">
+    <meta name="keywords" content="Desa Kiara Payung, Kiara Payung Pakuhaji, Kecamatan Pakuhaji, Kabupaten Tangerang, Profil Desa, Web Desa">
+    <title>Desa Kiara Payung, Kec. Pakuhaji - @yield('title')</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
@@ -45,8 +47,8 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-about">
-                <h3>Desa Kiara Payung</h3>
-                <p>Website resmi profil Desa Kiara Payung, menyajikan informasi terkini, potensi desa, dan layanan publik.</p>
+                <h3>Desa Kiara Payung, Pakuhaji</h3>
+                <p>Website resmi profil Desa Kiara Payung, Kecamatan Pakuhaji, Kabupaten Tangerang. Menyajikan informasi terkini, potensi desa, dan layanan publik.</p>
             </div>
             <div class="footer-links">
                 <h4>Tautan Cepat</h4>

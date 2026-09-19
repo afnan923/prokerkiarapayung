@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Desa')
+@section('title', 'Tentang Desa Kiara Payung Pakuhaji')
 
 @section('content')
 <div class="page-header">
     <div class="container">
-        <h1>Tentang Desa Kiara Payung</h1>
-        <p>Mengenal lebih dekat sejarah, visi, dan misi desa kami.</p>
+        <h1>Tentang Desa Kiara Payung, Pakuhaji</h1>
+        <p>Mengenal lebih dekat sejarah, visi, dan misi Desa Kiara Payung, Kecamatan Pakuhaji, Kabupaten Tangerang.</p>
     </div>
 </div>
 

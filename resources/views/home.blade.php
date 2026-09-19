@@ -20,7 +20,7 @@
         <!-- Bottom blurbs -->
         <div class="hero-blurbs fade-in-up delay-1">
             <div class="blurb">
-                <p>Desa Kiara Payung adalah desa maju yang menjunjung tinggi nilai budaya dan kesejahteraan masyarakat.</p>
+                <p>Desa Kiara Payung, Kecamatan Pakuhaji, Kabupaten Tangerang adalah desa maju yang menjunjung tinggi nilai budaya dan kesejahteraan masyarakat.</p>
             </div>
             <div class="blurb">
                 <p>Terletak di kawasan strategis, desa ini memiliki potensi unggulan di bidang pertanian dan UMKM.</p>
@@ -167,7 +167,7 @@
     <div class="container explore-content">
         <div class="explore-text">
             <h2>JELAJAHI DAN<br>NIKMATI DESA KAMI</h2>
-            <p>Jelajahi keindahan alam, keramahan penduduk, dan potensi luar biasa yang dimiliki oleh Desa Kiara Payung. Kami mengundang Anda untuk melihat lebih dekat.</p>
+            <p>Jelajahi keindahan alam, keramahan penduduk, dan potensi luar biasa yang dimiliki oleh Desa Kiara Payung, Pakuhaji. Kami mengundang Anda untuk melihat lebih dekat.</p>
         </div>
         <div class="explore-thumbnails">
             <div class="thumbnail">
